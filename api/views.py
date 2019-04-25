@@ -10,8 +10,8 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         # print(username, password)
-        result['username'] = username
-        result['password'] = password
+        result['username'] = "["+username+"]"
+        result['password'] = "["+password+"]"
         result = json.dumps(result)
         return HttpResponse(result, content_type='application/json;charset=utf-8')
     if request.method=='GET':
@@ -19,8 +19,8 @@ def login(request):
         username = request.GET.get('username')
         password = request.GET.get('password')
         # print(username,password)
-        result['username']=username
-        result['password'] =password
+        result['username']="["+username+"]"
+        result['password'] ="["+password+"]"
         result = json.dumps(result)
         return HttpResponse(result,content_type='application/json;charset=utf-8')
     else:
