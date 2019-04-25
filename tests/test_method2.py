@@ -5,6 +5,7 @@ import unittest
 import json
 from .request_test import RunMain
 
+
 class TestMethod(unittest.TestCase):
 
 
