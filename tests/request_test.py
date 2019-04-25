@@ -9,7 +9,6 @@ import json
 
 class RunMain:
 
-
     def run_main(self,url,method,data=None):
         res = None
         if method=='GET':
@@ -18,14 +17,12 @@ class RunMain:
             res = self.send_post(url,data)
         return res
 
-
     def send_get(self,url,data):
         res = requests.get(url=url,data=data).json()
         return json.dumps(res,indent=2,sort_keys=True)
 
     def send_post(self,url, data):
         res = requests.post(url=url, data=data).json()
-        # print(res)
         return json.dumps(res,indent=2,sort_keys=True)
 
 
