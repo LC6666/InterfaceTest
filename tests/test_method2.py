@@ -15,7 +15,8 @@ class TestMethod(unittest.TestCase):
         data = {
             'username': 'LC001',
             'password': '21218cca77804d2ba1922c33e0151105',
-            'validate': 'wxym3'}
+            'validate': 'wxym3',
+        }
         res = self.run.run_main(url,'POST',data)
         res = json.loads(res)
         self.assertEqual(res['username'], 'LC001')
@@ -25,7 +26,8 @@ class TestMethod(unittest.TestCase):
         data = {
             'username': 'LC002',
             'password': 'licheng',
-            'validate': 'wxym3'}
+            'validate': 'wxym3',
+        }
         res = self.run.run_main(url, 'POST', data)
         res = json.loads(res)
         self.assertEqual(res['username'],'LC002')
@@ -35,7 +37,8 @@ class TestMethod(unittest.TestCase):
         data = {
             'username': 'LC003',
             'password': 'licheng',
-            'validate': 'wxym3'}
+            'validate': 'wxym3',
+        }
         mock_data = mock.Mock(return_value=data)
         self.run.run_main = mock_data
         res = self.run.run_main(url, 'POST', data)
@@ -46,7 +49,8 @@ class TestMethod(unittest.TestCase):
         data = {
             'username': 'LC003',
             'password': 'licheng',
-            'validate': 'wxym3'}
+            'validate': 'wxym3',
+        }
         mock_test(self.run.run_main,data,url,'POST',data)
 
 
