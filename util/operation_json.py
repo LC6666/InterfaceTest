@@ -23,6 +23,8 @@ class OperationJson:
         return self.data[id]
 
 
+
+
 if __name__ == '__main__':
     jsondata = OperationJson()
     jsondata.get_data('user1')
