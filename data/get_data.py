@@ -50,7 +50,7 @@ class GetData:
         url = self.case_excel.get_cellVale(rowx,colx)
         return url
 
-
+    # 请求数据
     def get_request_data(self,rowx):
         colx = global_var.get_casedata()
         data = self.case_excel.get_cellVale(rowx,colx)
@@ -59,6 +59,13 @@ class GetData:
         else:
             return data
 
+    # 获取预期返回值
+    def get_reval(self,rowx):
+        colx = global_var.get_caseresult()
+        return self.case_excel.get_cellVale(rowx,colx)
+
     def get_data_for_json(self,rowx):
         data_json = OperationJson.get_data(self.get_case_id(rowx))
         return data_json
+
+
