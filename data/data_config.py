@@ -29,27 +29,27 @@ class global_var:
 
 
 
-    def get_caseid(self):
-        return global_var.Id
-    def get_module(self):
-        return global_var.module
-    def get_casename(self):
-        return global_var.casename
-    def get_casedescribe(self):
-        return global_var.casedescribe
-    def get_casecondition(self):
-        return global_var.casecondition
-    def get_caseurl(self):
-        return global_var.caseurl
-    def get_casemethod(self):
-        return global_var.casemethod
-    def get_caseheader(self):
-        return global_var.caseheader
-    def get_casedata(self):
-        return global_var.casedata
-    def get_caserecode(self):
-        return global_var.caserecode
-    def get_caseresult(self):
-        return global_var.caseresult
-    def get_execute(self):
-        return global_var.execute
+def get_caseid():    
+    return global_var.Id    
+def get_module():    
+    return global_var.module    
+def get_casename():    
+    return global_var.casename    
+def get_casedescribe():    
+    return global_var.casedescribe    
+def get_casecondition():    
+    return global_var.casecondition    
+def get_caseurl():    
+    return global_var.caseurl    
+def get_casemethod():    
+    return global_var.casemethod    
+def get_caseheader():    
+    return global_var.caseheader    
+def get_casedata():    
+    return global_var.casedata    
+def get_caserecode():    
+    return global_var.caserecode    
+def get_caseresult():    
+    return global_var.caseresult    
+def get_execute():    
+    return global_var.execute    

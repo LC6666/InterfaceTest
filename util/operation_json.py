@@ -19,8 +19,8 @@ class OperationJson:
             data = json.load(fp)
             return data
 
-    def get_data(self,id):
-        return self.data[id]
+    def get_data(self,key):
+        return self.data[key]
 
 
 

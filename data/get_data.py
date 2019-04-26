@@ -3,19 +3,18 @@ __author__ = "豆豆嗯嗯"
 
 from util.operation_excel import OperationExcel
 from util.operation_json import OperationJson
-from data.data_config import global_var
+from data import data_config
 
 class GetData:
 
     def __init__(self):
-        self.case_excel = OperationExcel('../case/case.xlsx')
+        self.case_excel = OperationExcel('../case/case.xlsx','Sheet1')
 
-    def get_case_lines(self):
-        self.case_excel.get_rowNum()
+    def get_case_rowNum(self):
+        return self.case_excel.get_rowNum()
 
     def get_case_id(self,rowx):
-        id=None
-        colx = global_var.get_caseid()
+        colx = data_config.get_caseid()
         return self.case_excel.get_cellVale(rowx,colx)
 
 
@@ -23,7 +22,7 @@ class GetData:
     # 是否执行用例
     def get_is_run(self,rowx):
         flag = None
-        colx = global_var.get_execute()
+        colx = data_config.get_execute()
         run_model = self.case_excel.get_cellVale(rowx,colx)
         if run_model=='yes':
             flag = True
@@ -33,39 +32,42 @@ class GetData:
 
     # 是否有header
     def is_header(self,rowx):
-        colx = global_var.get_caseheader()
+        colx = data_config.get_caseheader()
         header = self.case_excel.get_cellVale(rowx, colx)
-        if header != None & header!='':
+        if header != None and header!='':
             return header
 
     # 获取请求方式
     def get_request_method(self,rowx):
-        colx = global_var.get_casemethod()
+        colx = data_config.get_casemethod()
         request_method = self.case_excel.get_cellVale(rowx,colx)
         return request_method
 
     # 获取请求url
     def get_url(self,rowx):
-        colx = global_var.get_caseurl()
+        colx = data_config.get_caseurl()
         url = self.case_excel.get_cellVale(rowx,colx)
         return url
 
     # 请求数据
     def get_request_data(self,rowx):
-        colx = global_var.get_casedata()
+        colx = data_config.get_casedata()
         data = self.case_excel.get_cellVale(rowx,colx)
         if data == '':
             return None
         else:
             return data
 
+    def get_data_for_json(self,rowx):
+        key = self.get_request_data(rowx)
+        data_json = OperationJson().get_data(key)
+        return data_json
+
     # 获取预期返回值
     def get_reval(self,rowx):
-        colx = global_var.get_caseresult()
+        colx = data_config.get_caseresult()
         return self.case_excel.get_cellVale(rowx,colx)
 
-    def get_data_for_json(self,rowx):
-        data_json = OperationJson.get_data(self.get_case_id(rowx))
-        return data_json
+
 
 

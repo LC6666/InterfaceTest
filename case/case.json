@@ -1,1 +1,1 @@
-{"1":{"username": "xiaoming", "password": "xiaomingpass"},"2":{"username": "laowang", "password": "laowangpass"}}
+{"user1":{"username": "xiaoming", "password": "xiaomingpass"},"user2":{"username": "laowang", "password": "laowangpass"}}
