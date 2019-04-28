@@ -2,6 +2,7 @@
 __author__ = "豆豆嗯嗯"
 
 import xlrd
+from xlutils3 import copy
 
 # data = xlrd.open_workbook('../case/case.xlsx')
 # tables = data.sheet_by_name('Sheet1')
@@ -22,16 +23,30 @@ class OperationExcel:
 
         self.data = self.get_data()
 
+    # 获取表格
     def get_data(self):
         data = xlrd.open_workbook(self.file_name)
         tables = data.sheet_by_name(self.sheet_name)
         return tables
 
+    # 获取行数
     def get_rowNum(self):
         return self.data.nrows
 
-    def get_cellVale(self,rowx,clox):
-        return self.data.cell(int(rowx),int(clox)).value
+    # 获取单元格内容
+    def get_cellVale(self,rowx,colx):
+        return self.data.cell(int(rowx),int(colx)).value
+
+
+    # 写入数据
+    def write_value(self,rowx,colx,value):
+        read_data = xlrd.open_workbook(self.file_name)
+        write_data = copy.copy(read_data)
+        sheet_data = write_data.get_sheet(0)
+        sheet_data.write(int(rowx),int(colx),value)
+        write_data.save(self.file_name)
+
+
 
 if __name__ == '__main__':
     openers = OperationExcel()

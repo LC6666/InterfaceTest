@@ -68,6 +68,8 @@ class GetData:
         colx = data_config.get_hoperesult()
         return self.case_excel.get_cellVale(rowx,colx)
 
-
-
+    # 定入结果记录
+    def write_result(self,rowx,value):
+        colx = data_config.get_caseresult();
+        self.case_excel.write_value(rowx,colx,value)
 

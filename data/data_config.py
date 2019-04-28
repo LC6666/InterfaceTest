@@ -18,16 +18,22 @@ class global_var:
     casemethod= '6'
     # 请求头
     caseheader = '7'
+    # case依赖
+    casedepend = '8'
+    # 依赖返回数据
+    returndepend = '9'
+    # 数据依赖字段
+    datadepend = '10'
     # 发送数据
-    casedata = '8'
+    casedata = '11'
     # 返回状态码
-    caserecode = '9'
+    caserecode = '12'
     # 期望结果
-    hoperesult = '10'
+    hoperesult = '13'
     # 实际结果
-    caseresult = '11'
+    caseresult = '14'
     # 是否执行
-    execute = '12'
+    execute = '15'
 
 
 
@@ -46,7 +52,13 @@ def get_caseurl():
 def get_casemethod():    
     return global_var.casemethod    
 def get_caseheader():    
-    return global_var.caseheader    
+    return global_var.caseheader
+def get_casedepend():
+    return  global_var.casedepend
+def get_returndepend():
+    return global_var.returndepend
+def get_datadepend():
+    return global_var.datadepend
 def get_casedata():    
     return global_var.casedata    
 def get_caserecode():    
@@ -56,4 +68,5 @@ def get_hoperesult():
 def get_caseresult():
     return global_var.caseresult
 def get_execute():    
-    return global_var.execute    
+    return global_var.execute
+

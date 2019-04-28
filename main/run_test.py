@@ -21,13 +21,15 @@ class RunTest:
             data = self.data.get_data_for_json(i)
             header = eval(self.data.is_header(i))
             hoperesult = self.data.get_hopereval(i)
-            # print(url,method,is_run,data,header)
             if is_run:
                 res = self.run_method.run_main(method,url,data,header)
-                print(hoperesult,res)
+                print(res)
             if self.commonUtil.is_contain(hoperesult,res):
+                self.data.write_result(i,res)
                 print("测试通过")
+
             else:
+                self.data.write_result(i, res)
                 print("测试失败")
 
 
