@@ -13,7 +13,7 @@ class RunTest:
 
     def go_on_run(self):
         res = None
-        rowcount = self.data.get_case_rowNum()
+        rowcount = self.data.get_case_rowCount()
         for i in range(1,rowcount):
             url = self.data.get_url(i)
             method = self.data.get_request_method(i)

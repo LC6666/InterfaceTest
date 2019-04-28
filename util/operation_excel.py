@@ -29,8 +29,17 @@ class OperationExcel:
         tables = data.sheet_by_name(self.sheet_name)
         return tables
 
+    #获取某一列的内容
+    def get_cols_data(self,colsx=None):
+        cols = None
+        if colsx != None:
+            cols = self.data.col_values(colsx)
+        else:
+            cols = self.data.col_values(0)
+        return cols
+
     # 获取行数
-    def get_rowNum(self):
+    def get_rowCount(self):
         return self.data.nrows
 
     # 获取单元格内容
@@ -45,6 +54,26 @@ class OperationExcel:
         sheet_data = write_data.get_sheet(0)
         sheet_data.write(int(rowx),int(colx),value)
         write_data.save(self.file_name)
+
+    # 根据caseid获取该行的内容
+    def get_rowbycaseid(self,caseid):
+        rowNum = self.get_rowNumbycaseid(caseid)
+        return self.get_rowBycaseid(rowNum)
+
+    # 根据caseid找到对应的行号
+    def get_rowNumbycaseid(self,caseid):
+        num = 0
+        cols_data = self.get_cols_data(1)
+        for col_data in cols_data:
+            if caseid in col_data:
+                return num
+            num = num+1
+
+    # 根据rowid获取该行的内容
+    def get_rowByNum(self,rowx):
+        tables = self.data
+        row_data = tables.row_values(rowx)
+        return row_data
 
 
 

@@ -10,8 +10,8 @@ class GetData:
     def __init__(self):
         self.case_excel = OperationExcel('../case/case2.xlsx','Sheet1')
 
-    def get_case_rowNum(self):
-        return self.case_excel.get_rowNum()
+    def get_case_rowCount(self):
+        return self.case_excel.get_rowCount()
 
     def get_case_id(self,rowx):
         colx = data_config.get_caseid()
@@ -73,3 +73,11 @@ class GetData:
         colx = data_config.get_caseresult();
         self.case_excel.write_value(rowx,colx,value)
 
+    #获取依赖数据的key
+    def get_depend_key(self,rowx):
+        colx = data_config.get_datadepend()
+        depent_key = self.case_excel.get_cellVale(rowx,colx)
+        if depent_key == "":
+            return None
+        else:
+            return depent_key
