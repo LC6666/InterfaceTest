@@ -9,7 +9,9 @@ def login(request):
         result = {}
         username = request.POST.get('username')
         password = request.POST.get('password')
-        # print(username, password)
+        # data = json.loads(request.body.decode())
+        # username = data['username']
+        # password = data['password']
         result['username'] = "["+username+"]"
         result['password'] = "["+password+"]"
         result = json.dumps(result)

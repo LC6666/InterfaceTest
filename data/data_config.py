@@ -23,9 +23,11 @@ class global_var:
     # 返回状态码
     caserecode = '9'
     # 期望结果
-    caseresult = '10'
+    hoperesult = '10'
+    # 实际结果
+    caseresult = '11'
     # 是否执行
-    execute = '11'
+    execute = '12'
 
 
 
@@ -49,7 +51,9 @@ def get_casedata():
     return global_var.casedata    
 def get_caserecode():    
     return global_var.caserecode    
-def get_caseresult():    
-    return global_var.caseresult    
+def get_hoperesult():
+    return global_var.hoperesult
+def get_caseresult():
+    return global_var.caseresult
 def get_execute():    
     return global_var.execute    

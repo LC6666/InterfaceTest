@@ -8,7 +8,7 @@ from data import data_config
 class GetData:
 
     def __init__(self):
-        self.case_excel = OperationExcel('../case/case.xlsx','Sheet1')
+        self.case_excel = OperationExcel('../case/case2.xlsx','Sheet1')
 
     def get_case_rowNum(self):
         return self.case_excel.get_rowNum()
@@ -64,8 +64,8 @@ class GetData:
         return data_json
 
     # 获取预期返回值
-    def get_reval(self,rowx):
-        colx = data_config.get_caseresult()
+    def get_hopereval(self,rowx):
+        colx = data_config.get_hoperesult()
         return self.case_excel.get_cellVale(rowx,colx)
 
 

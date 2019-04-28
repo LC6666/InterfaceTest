@@ -27,4 +27,4 @@ class OperationJson:
 
 if __name__ == '__main__':
     jsondata = OperationJson()
-    jsondata.get_data('user1')
+    print(type(jsondata.get_data('user1')))
