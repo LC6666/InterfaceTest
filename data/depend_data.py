@@ -46,7 +46,7 @@ class DependData:
 
 
 if __name__ == '__main__':
-    data = '{  "status": true,  "statusCode": "200",  "errorMsg": "\u8bf7\u6c42\u6210\u529f",  "data": {"id": 1,"code": "admin", "orgId": 1, "name": "admin","type": "sysuser", "createUser": "admin", "createTime": 1529654754000,  "updateUser": "sysuser", "updateTime": 1529658285000, "enable": 1, "deleteFlag": 0, "password": "", "nickName": "\u8d85\u7ea7\u7ba1\u7406\u5458","phone": "13113113111", "remark": "asaa" }}'
+    data = '{"status":true,"statusCode":"200","errorMsg":"\u8bf7\u6c42\u6210\u529f","data":{"id": 1,"code":"admin","orgId":1,"name":"admin","type":"sysuser","createUser":"admin","createTime":1529654754000,"updateUser":"sysuser","updateTime":1529658285000,"enable":1,"deleteFlag":0,"password":"","nickName":"\u8d85\u7ea7\u7ba1\u7406\u5458","phone":"13113113111","remark":"asaa"}}'
     res = "data.id"
     json_exe = parse(res)
     madle = json_exe.find(json.loads(data))
