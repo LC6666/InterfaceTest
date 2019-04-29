@@ -58,6 +58,7 @@ class GetData:
         else:
             return data
 
+    # 获取请求数据
     def get_data_for_json(self,rowx):
         key = self.get_request_data(rowx)
         data_json = OperationJson().get_data(key)
@@ -73,22 +74,14 @@ class GetData:
         colx = data_config.get_caseresult();
         self.case_excel.write_value(rowx, colx, value)
 
-
-    # 定入结果记录
+    # 写入结果记录
     def write_result(self,rowx,value):
         colx = data_config.get_result()
         self.case_excel.write_value(rowx,colx,value)
 
-    #获取依赖数据的key
-    def get_depend_key(self,rowx):
-        colx = data_config.get_returndepend()
-        depent_key = self.case_excel.get_cellVale(rowx,colx)
-        if depent_key == "":
-            return None
-        else:
-            return depent_key
 
-    # 是否有数据依赖
+
+    # 是否有数据依赖，获取依赖caseid
     def is_depend(self,rowx):
         colx = data_config.get_casedepend()
         depend_case_id = self.case_excel.get_cellVale(rowx,colx)
@@ -101,3 +94,12 @@ class GetData:
     def get_depend_field(self,rowx):
         colx =  data_config.get_datadepend()
         return self.case_excel.get_cellVale(rowx,colx)
+
+    # 获取依赖数据的key
+    def get_depend_key(self, rowx):
+        colx = data_config.get_returndepend()
+        depent_key = self.case_excel.get_cellVale(rowx, colx)
+        if depent_key == "":
+            return None
+        else:
+            return depent_key
