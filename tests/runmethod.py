@@ -25,9 +25,9 @@ class RunMethod:
     def run_main(self,method,url,data=None,header=None):
         res = None
         if method=='post':
-            res = self.post_main(url,data,header)
+            res = self.post_main(url,data,eval(header))
         else:
-            res = self.get_main(url,data,header)
+            res = self.get_main(url,data,eval(header))
         return json.dumps(res,sort_keys=False,indent=2)
 
 if __name__ == '__main__':

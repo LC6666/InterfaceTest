@@ -68,16 +68,36 @@ class GetData:
         colx = data_config.get_hoperesult()
         return self.case_excel.get_cellVale(rowx,colx)
 
+    # 写入实际返回值
+    def write_realresult(self,rowx,value):
+        colx = data_config.get_caseresult();
+        self.case_excel.write_value(rowx, colx, value)
+
+
     # 定入结果记录
     def write_result(self,rowx,value):
-        colx = data_config.get_caseresult();
+        colx = data_config.get_result()
         self.case_excel.write_value(rowx,colx,value)
 
     #获取依赖数据的key
     def get_depend_key(self,rowx):
-        colx = data_config.get_datadepend()
+        colx = data_config.get_returndepend()
         depent_key = self.case_excel.get_cellVale(rowx,colx)
         if depent_key == "":
             return None
         else:
             return depent_key
+
+    # 是否有数据依赖
+    def is_depend(self,rowx):
+        colx = data_config.get_casedepend()
+        depend_case_id = self.case_excel.get_cellVale(rowx,colx)
+        if depend_case_id =="":
+            return None
+        else:
+            return depend_case_id
+
+    # 获取数据依赖字段
+    def get_depend_field(self,rowx):
+        colx =  data_config.get_datadepend()
+        return self.case_excel.get_cellVale(rowx,colx)

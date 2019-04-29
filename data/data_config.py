@@ -30,10 +30,13 @@ class global_var:
     caserecode = '12'
     # 期望结果
     hoperesult = '13'
-    # 实际结果
+    # 执行结果
     caseresult = '14'
+    # 测试结果
+    result = '15'
     # 是否执行
-    execute = '15'
+    execute = '16'
+
 
 
 
@@ -67,6 +70,8 @@ def get_hoperesult():
     return global_var.hoperesult
 def get_caseresult():
     return global_var.caseresult
+def get_result():
+    return global_var.result
 def get_execute():    
     return global_var.execute
 
