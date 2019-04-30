@@ -4,6 +4,7 @@ from tests.runmethod import RunMethod
 from data.get_data import GetData
 from util.common_util import CommUtil
 from data.depend_data import DependData
+from util.send_email import SendEmail
 
 class RunTest:
 
@@ -11,6 +12,7 @@ class RunTest:
         self.run_method = RunMethod()
         self.data = GetData()
         self.commonUtil = CommUtil()
+        self.send_mail = SendEmail()
 
     def go_on_run(self):
         res = None
@@ -51,7 +53,8 @@ class RunTest:
                     self.data.write_result(i, "测试失败")
                     fail_count.append(i)
 
-        print(pass_count,fail_count)
+
+        self.send_mail.send_mail_main(pass_count,fail_count)
 
 
 if __name__ == '__main__':
