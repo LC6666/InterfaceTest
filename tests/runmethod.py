@@ -25,12 +25,15 @@ class RunMethod:
     def run_main(self,method,url,data=None,header=None):
         res = None
         if method=='post':
-            res = self.post_main(url,data,eval(header))
+            res = self.post_main(url,data,header)
         else:
-            res = self.get_main(url,data,eval(header))
+            res = self.get_main(url,data,header)
         return json.dumps(res,sort_keys=False,indent=2)
 
 if __name__ == '__main__':
     run = RunMethod()
-    res = run.run_main('post','http://127.0.0.1:8000/login/','{"username":"xiaoming","password":"xiaomingpass"}',{"Content-Type":"application/x-www-form-urlencoded"})
+    data = {"disId":"12","disName":"血栓性外痔","disCode":"","disCodeAdd":"","areaCode":"","disType":""}
+    data = json.dumps(data)
+    print(data)
+    res = run.run_main('post','http://192.168.29.156:8120/icd10/model/match',data,{"Content-Type":"application/json;charset=UTF-8"})
     print(res)

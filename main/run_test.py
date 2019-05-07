@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = "豆豆嗯嗯"
+import sys
+sys.path.append("F:/python work/MyDjangos/MyTester")
 from tests.runmethod import RunMethod
 from data.get_data import GetData
 from util.common_util import CommUtil
