@@ -2,10 +2,8 @@
 __author__ = "豆豆嗯嗯"
 
 
-import sys
-sys.path.append("F:/python work/MyDjangos/MyTester")
+
 import unittest
-from api.tests import RunMain
 
 class TestMethod(unittest.TestCase):
     @classmethod
