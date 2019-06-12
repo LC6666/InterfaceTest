@@ -1,8 +1,12 @@
 # -*coding:utf-8 -*-
 __author__="豆豆嗯嗯"
 
+import sys
+sys.path.append("F:/python work/MyDjangos/MyTester")
+
 from openpyxl import Workbook
 from openpyxl import load_workbook
+
 
 if __name__ == "__main__":
 

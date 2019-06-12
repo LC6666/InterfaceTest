@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = "豆豆嗯嗯"
 
-from data.get_data import data_config
+
 from util.operation_excel import OperationExcel
 from tests.runmethod import RunMethod
 from data.get_data import GetData
@@ -30,8 +30,9 @@ class DependData:
         method = self.data.get_request_method(row)
         # data = self.data.get_request_data(row)
         url = self.data.get_url(row)
-        res = run_method.run_main(method,url,request_data,header)
-        return json.loads(res)
+        # res = run_method.run_main(method,url,request_data,header)
+        res = run_method.run_main(method, url, request_data)
+        return json.loads(res.content)
 
     # 根据依赖的key去获取依赖测试case的响应，然后返回数据依赖字段的值
     def get_data_for_key(self,rowx):

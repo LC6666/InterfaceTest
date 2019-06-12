@@ -1,12 +1,14 @@
 # -*- coding:utf-8 -*-
 __author__ = "豆豆嗯嗯"
-import sys
-sys.path.append("F:/python work/MyDjangos/MyTester")
+
 from tests.runmethod import RunMethod
 from data.get_data import GetData
 from util.common_util import CommUtil
 from data.depend_data import DependData
 from util.send_email import SendEmail
+from util.operation_header import OperationHeader
+from util.operation_json import OperationJson
+import json
 
 class RunTest:
 
@@ -29,9 +31,11 @@ class RunTest:
                 url = self.data.get_url(i)
                 method = self.data.get_request_method(i)
                 data = self.data.get_data_for_json(i)
+                is_cookie = self.data.get_cookies(i)
                 header = self.data.is_header(i)
                 hoperesult = self.data.get_hopereval(i)
                 is_depend = self.data.is_depend(i)
+                # 是否需要依赖
                 if is_depend != None:
                     self.depend_data = DependData(is_depend)
                     # 获取依赖的响应数据
@@ -40,10 +44,20 @@ class RunTest:
                     depend_key = self.data.get_depend_field(i)
                     data[depend_key] = depend_response_data
 
-                else:
-                    pass
+                # 是否保存cookies
+                if is_cookie =='write':
+                    res = self.run_method.run_main(method,url,data)
+                    op_headers = OperationHeader(res)
+                    op_headers.write_cookie()
 
-                res = self.run_method.run_main(method,url,data,header)
+                elif is_cookie =='yes':
+                    op_json = OperationJson('../case/cookie.json')
+                    res = self.run_method.run_main(method,url,data,op_json.data)
+                else:
+                    res = self.run_method.run_main(method,url,data)
+
+                res =res.content.decode('utf-8')
+                print(res)
 
                 if self.commonUtil.is_contain(hoperesult,res):
                     self.data.write_realresult(i,res)
@@ -55,8 +69,12 @@ class RunTest:
                     self.data.write_result(i, "测试失败")
                     fail_count.append(i)
 
+                res = json.loads(res);
+                if (res['statusCode'] != "200"):
+                    print(res['errorMsg'])
 
-        self.send_mail.send_mail_main(pass_count,fail_count)
+
+        # self.send_mail.send_mail_main(pass_count,fail_count)
 
 
 if __name__ == '__main__':

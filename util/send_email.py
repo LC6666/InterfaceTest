@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 __author__ = "豆豆嗯嗯"
 
+
+import sys
+sys.path.append("F:/python work/MyDjangos/MyTester")
 import smtplib
 from email.mime.text import MIMEText
 

@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 __author__ = "豆豆嗯嗯"
 
+import sys
+
+
 class global_var:
     #编号
     Id = '0'
@@ -18,24 +21,26 @@ class global_var:
     casemethod= '6'
     # 请求头
     caseheader = '7'
+    # cookies
+    casecookies = '8'
     # case依赖
-    casedepend = '8'
+    casedepend = '9'
     # 依赖返回数据
-    returndepend = '9'
+    returndepend = '10'
     # 数据依赖字段
-    datadepend = '10'
+    datadepend = '11'
     # 发送数据
-    casedata = '11'
+    casedata = '12'
     # 返回状态码
-    caserecode = '12'
+    caserecode = '13'
     # 期望结果
-    hoperesult = '13'
+    hoperesult = '14'
     # 执行结果
-    caseresult = '14'
+    caseresult = '15'
     # 测试结果
-    result = '15'
+    result = '16'
     # 是否执行
-    execute = '16'
+    execute = '17'
 
 
 
@@ -56,6 +61,8 @@ def get_casemethod():
     return global_var.casemethod    
 def get_caseheader():    
     return global_var.caseheader
+def get_casecookies():
+    return global_var.casecookies
 def get_casedepend():
     return  global_var.casedepend
 def get_returndepend():

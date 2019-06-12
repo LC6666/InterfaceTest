@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 __author__ = "豆豆嗯嗯"
 
+
+
 from util.operation_excel import OperationExcel
 from util.operation_json import OperationJson
 from data import data_config
@@ -36,6 +38,18 @@ class GetData:
         header = self.case_excel.get_cellVale(rowx, colx)
         if header != None and header!='':
             return header
+        else:
+            return None
+
+    # 是否保存cookies
+    def get_cookies(self,rowx):
+        colx = data_config.get_casecookies()
+        is_cookies = self.case_excel.get_cellVale(rowx,colx)
+        if is_cookies !='':
+            return is_cookies
+        else:
+            return None
+
 
     # 获取请求方式
     def get_request_method(self,rowx):
