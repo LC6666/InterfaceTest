@@ -36,7 +36,6 @@ if __name__ == '__main__':
     }
 
     res = requests.post(url,data)
-    # res = requests.post(url, data)
     op_headers = OperationHeader(res)
     cookie = op_headers.get_cookie()
     op_headers.write_cookie()
