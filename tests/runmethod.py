@@ -27,14 +27,12 @@ class RunMethod:
 
 
     def run_main(self,method,url,data=None,header=None):
-        print(method,url,data,header)
         res = None
         if method=='post':
             res = self.post_main(url,data,header)
         else:
             res = self.get_main(url,data,header)
         # return json.dumps(res,sort_keys=False,indent=2)
-        print(res.content.decode('utf-8'))
         return res
 
 if __name__ == '__main__':

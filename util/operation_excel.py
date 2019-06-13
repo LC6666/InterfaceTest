@@ -5,6 +5,11 @@ import os,sys
 import xlrd
 from xlutils3 import copy
 
+# data = xlrd.open_workbook('../case/case.xlsx')
+# tables = data.sheet_by_name('Sheet1')
+# print(tables.nrows)
+# print(tables.cell(0,3))
+
 
 class OperationExcel:
     def __init__(self,file_name=None,sheet_name=None):
@@ -77,9 +82,5 @@ class OperationExcel:
 
 
 if __name__ == '__main__':
-    openers = OperationExcel("../case/case2.xlsx","Sheet1")
-    print(openers.get_rowCount())
-    # openers.write_value(3, 10, "id,code,orgId,name")
-    print(openers.get_cellVale(3,10))
-
-    #"statusCode": "200"
+    openers = OperationExcel()
+    print(openers.get_rowNum())
