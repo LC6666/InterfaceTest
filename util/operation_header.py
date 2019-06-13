@@ -2,7 +2,6 @@
 __author__ = "豆豆嗯嗯"
 
 import requests
-import json
 from util.operation_json import OperationJson
 
 class OperationHeader:

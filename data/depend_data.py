@@ -5,7 +5,7 @@ __author__ = "豆豆嗯嗯"
 from util.operation_excel import OperationExcel
 from tests.runmethod import RunMethod
 from data.get_data import GetData
-from main.run_test import RunTest
+from util.run_testcase import RunCase
 import json
 
 from jsonpath_rw import jsonpath,parse
@@ -45,11 +45,10 @@ class DependData:
         hoperesult = self.data.get_hopereval(row)
         is_depend = self.data.is_depend(row)
         # 获取依赖的响应数据
-        depend_response_data = self.depend_data.get_data_for_keys(row)
+        depend_response_data = self.get_data_for_keys(row)
         # 获取依赖的key
         depend_key = self.data.get_depend_field(row)
-        run = RunTest()
-        res = run.run_testcase(url, method, data, is_cookie, header, hoperesult, is_depend, depend_response_data, depend_key)
+        res = RunCase(url, method, data, is_cookie, header, hoperesult, is_depend, depend_response_data, depend_key)
 
         return json.loads(res.content)
 
@@ -63,6 +62,7 @@ class DependData:
         json_exe = parse(depend_data)
         madle = json_exe.find(res)
         return [math.value for math in madle][0]
+
 
         # 根据依赖的key去获取依赖测试case的响应，然后返回数据依赖字段的值
     def get_data_for_keys(self, rowx):
