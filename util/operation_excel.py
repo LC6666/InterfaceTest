@@ -82,5 +82,6 @@ class OperationExcel:
 
 
 if __name__ == '__main__':
-    openers = OperationExcel()
-    print(openers.get_rowNum())
+    openers = OperationExcel("../case/case2.xlsx","Sheet1")
+    print(openers.get_cellVale(3,14))
+    # openers.write_value(1,14,"\"statusCode\":\"200\"")

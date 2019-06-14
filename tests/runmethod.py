@@ -22,7 +22,6 @@ class RunMethod:
             res = requests.get(url=url, data=data, headers=header)
         else:
             res = requests.get(url=url, data=data)
-        # return res.json()
         return res
 
 

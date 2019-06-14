@@ -28,6 +28,7 @@ class RunTest:
             is_run = self.data.get_is_run(i)
 
             if is_run:
+                modname = self.data.get_module(i)
                 url = self.data.get_url(i)
                 method = self.data.get_request_method(i)
                 data = self.data.get_data_for_json(i)
@@ -48,16 +49,20 @@ class RunTest:
                 if is_cookie =='write':
                     res = self.run_method.run_main(method,url,data)
                     op_headers = OperationHeader(res)
-                    op_headers.write_cookie()
+                    if modname=="登录":
+                        op_headers.write_login_cookie()
+                    else:
+                        op_headers.write_cookie()
 
                 elif is_cookie =='yes':
                     op_json = OperationJson('../case/cookie.json')
-                    res = self.run_method.run_main(method,url,data,op_json.data)
+                    header = {"Cookie":op_json.data}
+                    res = self.run_method.run_main(method,url,data,header)
                 else:
                     res = self.run_method.run_main(method,url,data)
 
                 res =res.content.decode('utf-8')
-                print(res)
+                # print(res)
 
                 if self.commonUtil.is_contain(hoperesult,res):
                     self.data.write_realresult(i,res)
@@ -71,7 +76,8 @@ class RunTest:
 
                 res = json.loads(res);
                 if (res['statusCode'] != "200"):
-                    print(res['errorMsg'])
+                    # print(res['errorMsg'])
+                    pass
 
 
         # self.send_mail.send_mail_main(pass_count,fail_count)

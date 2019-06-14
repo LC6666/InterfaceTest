@@ -19,7 +19,9 @@ class GetData:
         colx = data_config.get_caseid()
         return self.case_excel.get_cellVale(rowx,colx)
 
-
+    def get_module(self,rowx):
+        colx = data_config.get_module()
+        return self.case_excel.get_cellVale(rowx, colx)
 
     # 是否执行用例
     def get_is_run(self,rowx):
