@@ -3,5 +3,8 @@ __author__ = "豆豆嗯嗯"
 
 import sys
 
-if __name__ == '__main__':
-    print(sys.path)
+name=''
+while name != "your name":
+      print("please input yor name!")
+      name=input()
+print("Thank you!")
